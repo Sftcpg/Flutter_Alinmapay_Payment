@@ -9,9 +9,9 @@ Pod::Spec.new do |s|
   s.description      = <<-DESC
 Official Flutter plugin for Alinma Pay Payment SDK integration, supporting secure and seamless payment processing.
                        DESC
-  s.homepage         = 'https://github.com/alinmapay/flutter-payment-sdk'
+  s.homepage         = 'https://github.com/Sftcpg/Flutter_Alinmapay_Payment'
   s.license          = { :file => '../LICENSE' }
-  s.author           = { 'Alinma Pay' => 'info@alinmapay.com.sa' }
+  s.author           = { 'Alinma Pay' => 'alinmapaypg@gmail.com' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
   s.vendored_frameworks ='Frameworks/PaymentSDK.xcframework'
