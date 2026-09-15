@@ -1,0 +1,10 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.alinmapay.payment">
+    <application>
+
+        <activity
+            android:name="com.alinmapay.android.Activity.PaymentOptionsActivity"
+            android:theme="@style/PaymentSdkTheme"/>
+
+    </application>
+</manifest>

@@ -1,0 +1,469 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.3.3 effective-5.10 (swiftlang-6.3.3.1.3 clang-2100.1.1.101)
+// swift-module-flags: -target arm64-apple-ios15.6 -enable-objc-interop -enable-library-evolution -swift-version 5 -O -enable-upcoming-feature DisableOutwardActorInference -enable-upcoming-feature InferSendableFromCaptures -enable-upcoming-feature GlobalActorIsolatedTypesUsability -enable-upcoming-feature MemberImportVisibility -enable-upcoming-feature InferIsolatedConformances -enable-upcoming-feature NonisolatedNonsendingByDefault -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name PaymentSDK
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.3.3
+import Combine
+import CommonCrypto
+import Foundation
+import PassKit
+import Swift
+import SwiftUI
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct SubmitCVVPaymentReq : Swift.Codable {
+  public let browserDetails: PaymentSDK.BrowserDetailsCVV
+  public let card: PaymentSDK.VerifyCard
+  public let customerIp: Swift.String
+  public let paymentId: Swift.String
+  public init(browserDetails: PaymentSDK.BrowserDetailsCVV, card: PaymentSDK.VerifyCard, customerIp: Swift.String, paymentId: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BrowserDetailsCVV : Swift.Codable {
+  public let transactionUuid: Swift.String
+  public let browserLanguage: Swift.String
+  public let browserScreenHeight: Swift.String
+  public let browserJavascriptEnabled: Swift.Bool
+  public let browserColorDepth: Swift.String
+  public let browserJavaEnabled: Swift.Bool
+  public let browserScreenWidth: Swift.String
+  public let browserAcceptHeader: Swift.String
+  public let browserTZ: Swift.String
+  public let browserUserAgent: Swift.String
+  public init(transactionUuid: Swift.String, browserLanguage: Swift.String, browserScreenHeight: Swift.String, browserJavascriptEnabled: Swift.Bool, browserColorDepth: Swift.String, browserJavaEnabled: Swift.Bool, browserScreenWidth: Swift.String, browserAcceptHeader: Swift.String, browserTZ: Swift.String, browserUserAgent: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct VerifyCard : Swift.Codable {
+  public let cvv: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SDKButtonStyle {
+  public var backgroundColor: SwiftUICore.Color
+  public var textColor: SwiftUICore.Color
+  public var cornerRadius: CoreFoundation.CGFloat
+  public var borderColor: SwiftUICore.Color
+  public var borderWidth: CoreFoundation.CGFloat
+  public var font: SwiftUICore.Font
+  public var height: CoreFoundation.CGFloat
+  public init(backgroundColor: SwiftUICore.Color = .blue, textColor: SwiftUICore.Color = .white, cornerRadius: CoreFoundation.CGFloat = 12, borderColor: SwiftUICore.Color = .clear, borderWidth: CoreFoundation.CGFloat = 0, font: SwiftUICore.Font = .headline, height: CoreFoundation.CGFloat = 50)
+}
+public struct SDKInputStyle {
+  public var backgroundColor: SwiftUICore.Color
+  public var borderColor: SwiftUICore.Color
+  public var borderWidth: CoreFoundation.CGFloat
+  public var cornerRadius: CoreFoundation.CGFloat
+  public init(backgroundColor: SwiftUICore.Color = .white, borderColor: SwiftUICore.Color = .gray, borderWidth: CoreFoundation.CGFloat = 1, cornerRadius: CoreFoundation.CGFloat = 5)
+}
+public struct PaymentRequest : Swift.Codable {
+  public let paymentType: Swift.String
+  public let currency: Swift.String
+  public let amount: Swift.String
+  public let countryCode: Swift.String
+  public let order: PaymentSDK.Order
+  public let customer: PaymentSDK.Customer
+  public let paymentInstrument: PaymentSDK.PaymentInstrument
+  public let additionalDetails: PaymentSDK.ReqAdditionalDetails
+  public let tokenization: PaymentSDK.Tokenization
+  public let deviceinfo: PaymentSDK.DeviceInfo
+  public init(amount: Swift.String, currency: Swift.String, paymentType: Swift.String, countryCode: Swift.String, order: PaymentSDK.Order, customer: PaymentSDK.Customer, paymentInstrument: PaymentSDK.PaymentInstrument, additionalDetails: PaymentSDK.ReqAdditionalDetails, tokenization: PaymentSDK.Tokenization, deviceinfo: PaymentSDK.DeviceInfo)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Order : Swift.Codable {
+  public let orderId: Swift.String
+  public let description: Swift.String
+  public init(orderId: Swift.String, description: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Customer : Swift.Codable {
+  public let customerEmail: Swift.String
+  public let billingAddressStreet: Swift.String
+  public let billingAddressCity: Swift.String
+  public let billingAddressState: Swift.String
+  public let billingAddressPostalCode: Swift.String
+  public let billingAddressCountry: Swift.String
+  public init(customerEmail: Swift.String, billingAddressStreet: Swift.String, billingAddressCity: Swift.String, billingAddressState: Swift.String, billingAddressPostalCode: Swift.String, billingAddressCountry: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PaymentInstrument : Swift.Codable {
+  public let paymentMethod: Swift.String
+  public init(paymentMethod: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ReqAdditionalDetails : Swift.Codable {
+  public let userData: Swift.String
+  public init(userData: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct DeviceInfo : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Tokenization : Swift.Codable {
+  public let operation: Swift.String
+  public let cardToken: Swift.String
+  public init(operation: Swift.String, cardToken: Swift.String)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PaymentToken : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ApplePayPaymentMethod : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ApplePayRequestData {
+  public let amount: Swift.String
+  public let transactionType: Swift.String
+  public let currency: Swift.String
+  public let email: Swift.String
+  public let address: Swift.String
+  public let city: Swift.String
+  public let state: Swift.String
+  public let zip: Swift.String
+  public let countryCode: Swift.String
+  public let trackId: Swift.String
+  public let cardOperation: Swift.String
+  public let cardToken: Swift.String
+  public let tokenType: Swift.String
+  public let transactionId: Swift.String
+  public let metadata: Swift.String
+  public init(amount: Swift.String = "", transactionType: Swift.String = "", currency: Swift.String = "", email: Swift.String = "", address: Swift.String = "", city: Swift.String = "", state: Swift.String = "", zip: Swift.String = "", countryCode: Swift.String = "", trackId: Swift.String = "", cardOperation: Swift.String = "", cardToken: Swift.String = "", tokenType: Swift.String = "0", transactionId: Swift.String = "", metadata: Swift.String = "{}")
+}
+@_hasMissingDesignatedInitializers final public class InAppSDK : Foundation.ObservableObject {
+  public static let shared: PaymentSDK.InAppSDK
+  @Combine.Published<Swift.String> @_projectedValueProperty($apipaymentInst) final public var apipaymentInst: Swift.String {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  final public var $apipaymentInst: Combine.Published<Swift.String>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  final public var configuration: PaymentSDK.SDKConfiguration? {
+    get
+  }
+  weak final public var delegate: (any PaymentSDK.PaymentDelegate)?
+  final public func initialize(configuration: PaymentSDK.SDKConfiguration)
+  final public var currentConfiguration: PaymentSDK.SDKConfiguration? {
+    get
+  }
+  final public var merchantKey: Swift.String? {
+    get
+  }
+  final public func startPayment(request: PaymentSDK.PaymentRequestData, completion: @escaping (PaymentSDK.PaymentResult) -> Swift.Void)
+  final public func getSupportedPaymentMethod(completion: @escaping (Swift.Result<PaymentSDK.SupportedPaymentMethodResponse, any Swift.Error>) -> Swift.Void)
+  final public func getCardBrandDetails(cardBin: Swift.String)
+  final public func startApplePay(request: PaymentSDK.PaymentRequestData, completion: @escaping (PaymentSDK.PaymentResult) -> Swift.Void)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+public struct PaymentResult : Swift.Codable {
+  public let transactionId: Swift.String?
+  public let transactionDateTime: Swift.String?
+  public let result: Swift.String?
+  public let responseCode: Swift.String?
+  public let responseDescription: Swift.String?
+  public let orderId: Swift.String?
+  public let amount: Swift.String?
+  public let originalAmount: Swift.String?
+  public let paymentMethod: Swift.String?
+  public let maskedCard: Swift.String?
+  public let cardBrand: Swift.String?
+  public let cardToken: Swift.String?
+  public let cardHolderName: Swift.String?
+  public let signature: Swift.String?
+  public let terminalId: Swift.String?
+  public init(transactionId: Swift.String?, transactionDateTime: Swift.String?, result: Swift.String?, responseCode: Swift.String?, responseDescription: Swift.String?, orderId: Swift.String?, amount: Swift.String?, originalAmount: Swift.String?, paymentMethod: Swift.String?, maskedCard: Swift.String?, cardBrand: Swift.String?, cardToken: Swift.String?, cardHolderName: Swift.String?, signature: Swift.String?, terminalId: Swift.String?)
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PaymentRequestData {
+  public let amount: Swift.String
+  public let transactionType: Swift.String
+  public let currency: Swift.String
+  public let email: Swift.String
+  public let address: Swift.String
+  public let city: Swift.String
+  public let state: Swift.String
+  public let zip: Swift.String
+  public let countryCode: Swift.String
+  public let trackId: Swift.String
+  public let cardOperation: Swift.String
+  public let cardToken: Swift.String
+  public let tokenType: Swift.String
+  public let transactionId: Swift.String
+  public let metadata: Swift.String
+  public init(amount: Swift.String = "", transactionType: Swift.String = "", currency: Swift.String = "", email: Swift.String = "", address: Swift.String = "", city: Swift.String = "", state: Swift.String = "", zip: Swift.String = "", countryCode: Swift.String = "", trackId: Swift.String = "", cardOperation: Swift.String = "", cardToken: Swift.String = "", tokenType: Swift.String = "0", transactionId: Swift.String = "", metadata: Swift.String = "{}")
+}
+@_Concurrency.MainActor @preconcurrency public struct SDKButton : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(title: Swift.String, systemImage: Swift.String? = nil, style: PaymentSDK.SDKButtonStyle, action: @escaping () -> Swift.Void)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10PaymentSDK9SDKButtonV4bodyQrvp", 0) __
+}
+public struct SupportedPaymentMethodResponse : Swift.Codable {
+  public let supportedPaymentModes: [Swift.String]
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SupportedPaymentMethodHeader : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SDKTheme {
+  public var primaryColor: SwiftUICore.Color
+  public var textColor: SwiftUICore.Color
+  public var buttonTextColor: SwiftUICore.Color
+  public var merchantBranding: PaymentSDK.SDKMerchantBranding
+  public var logo: UIKit.UIImage?
+  public var font: SwiftUICore.Font
+  public var buttonCornerRadius: CoreFoundation.CGFloat
+  public var primaryButtonStyle: PaymentSDK.SDKButtonStyle
+  public var labelStyle: PaymentSDK.SDKTextStyle
+  public var inputStyle: PaymentSDK.SDKInputStyle
+  public init(primaryColor: SwiftUICore.Color = .blue, merchantBranding: PaymentSDK.SDKMerchantBranding = .none(), backgroundColor: SwiftUICore.Color = .white, textColor: SwiftUICore.Color = .black, buttonTextColor: SwiftUICore.Color = .white, borderColor: SwiftUICore.Color = Color.gray.opacity(0.3), errorColor: SwiftUICore.Color = .red, successColor: SwiftUICore.Color = .green, logo: UIKit.UIImage? = nil, font: SwiftUICore.Font = .body, buttonCornerRadius: CoreFoundation.CGFloat = 12, textFieldCornerRadius: CoreFoundation.CGFloat = 10, primaryButtonStyle: PaymentSDK.SDKButtonStyle = SDKButtonStyle(), labelStyle: PaymentSDK.SDKTextStyle = SDKTextStyle(
+            color: .gray,
+            height: 20,
+            isBold: false ), inputStyle: PaymentSDK.SDKInputStyle = SDKInputStyle(
+            backgroundColor: .white,
+            borderColor: .gray,
+            borderWidth: 1,
+            cornerRadius: 5
+        ))
+}
+extension PaymentSDK.SDKTheme {
+  public static var light: PaymentSDK.SDKTheme {
+    get
+  }
+  public static var dark: PaymentSDK.SDKTheme {
+    get
+  }
+}
+public struct InitiatePaymentResponse : Swift.Codable {
+  public let orderDetails: PaymentSDK.OrderDetails
+  public let responseDescription: Swift.String
+  public let transactionDateTime: Swift.String
+  public let result: Swift.String?
+  public let paymentLink: PaymentSDK.PaymentLink?
+  public let tokenizationDetails: PaymentSDK.TokenDetails?
+  public let terminalId: Swift.String
+  public let additionalDetails: PaymentSDK.ResAdditionalDetails?
+  public let transactionId: Swift.String
+  public let amountDetails: PaymentSDK.AmountDetails
+  public let responseCode: Swift.String
+  public let supportedPaymentModes: [Swift.String]?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct OrderDetails : Swift.Codable {
+  public let orderId: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct PaymentLink : Swift.Codable {
+  public let linkUrl: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct AmountDetails : Swift.Codable {
+  public let amount: Swift.String
+  public let originalAmount: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct TokenDetails : Swift.Codable {
+  public let cardToken: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ResAdditionalDetails : Swift.Codable {
+  public let userData: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SDKMerchantBranding {
+  public enum BrandingType {
+    case none
+    case logo
+    case text
+    public static func == (a: PaymentSDK.SDKMerchantBranding.BrandingType, b: PaymentSDK.SDKMerchantBranding.BrandingType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var type: PaymentSDK.SDKMerchantBranding.BrandingType
+  public var logo: UIKit.UIImage?
+  public var text: Swift.String?
+  public init()
+  public static func logo(_ image: UIKit.UIImage) -> PaymentSDK.SDKMerchantBranding
+  public static func text(_ value: Swift.String) -> PaymentSDK.SDKMerchantBranding
+  public static func none() -> PaymentSDK.SDKMerchantBranding
+}
+@_hasMissingDesignatedInitializers final public class ApplePayUtility {
+  public static func generatePaymentKey(payment: PassKit.PKPayment) -> Swift.String
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct SDKLabelField : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(title: Swift.String, textStyle: PaymentSDK.SDKTextStyle? = nil, width: CoreFoundation.CGFloat? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10PaymentSDK13SDKLabelFieldV4bodyQrvp", 0) __
+}
+final public class SDKConfiguration {
+  final public let terminalId: Swift.String
+  final public let password: Swift.String
+  final public let merchantKey: Swift.String
+  final public let baseURL: Swift.String
+  final public let theme: PaymentSDK.SDKTheme
+  public init(terminalId: Swift.String, password: Swift.String, merchantKey: Swift.String, baseURL: Swift.String, theme: PaymentSDK.SDKTheme = .light)
+  @objc deinit
+}
+@_Concurrency.MainActor @preconcurrency public struct SDKTextField : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init(title: Swift.String, text: SwiftUICore.Binding<Swift.String>, keyboardType: UIKit.UIKeyboardType = .default, width: CoreFoundation.CGFloat? = nil, height: CoreFoundation.CGFloat = 44, style: PaymentSDK.SDKInputStyle, logo: Swift.String? = nil, isSecure: Swift.Bool = false, validation: ((Swift.String) -> Swift.String?)? = nil, onChange: ((Swift.String) -> Swift.Void)? = nil)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s10PaymentSDK12SDKTextFieldV4bodyQrvp", 0) __
+}
+public struct SubmitPaymentRequest : Swift.Codable {
+  public let referenceId: Swift.String
+  public let customerIp: Swift.String
+  public let amount: Swift.String
+  public let currency: Swift.String
+  public let cardTokenFlag: Swift.String
+  public let paymentInstrument: PaymentSDK.SubmitPaymentInstrument
+  public let card: PaymentSDK.Card
+  public let customer: PaymentSDK.SubmitCustomer
+  public let browserDetails: PaymentSDK.BrowserDetails
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitPaymentInstrument : Swift.Codable {
+  public let vpaId: Swift.String?
+  public let walletId: Swift.String?
+  public let paymentMethod: Swift.String
+  public let channelName: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct Card : Swift.Codable {
+  public let number: Swift.String?
+  public let cvv: Swift.String
+  public let expiryMonth: Swift.String?
+  public let expiryYear: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitCustomer : Swift.Codable {
+  public let cardHolderName: Swift.String
+  public let customerEmail: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BrowserDetails : Swift.Codable {
+  public let transactionUuid: Swift.String
+  public let browserLanguage: Swift.String
+  public let browserScreenHeight: Swift.String
+  public let browserJavascriptEnabled: Swift.Bool
+  public let browserColorDepth: Swift.String
+  public let browserJavaEnabled: Swift.Bool
+  public let browserScreenWidth: Swift.String
+  public let browserAcceptHeader: Swift.String
+  public let browserTZ: Swift.String
+  public let browserUserAgent: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitPaymentResponse : Swift.Codable {
+  public let threeDSChallengeResponse: PaymentSDK.ThreeDSChallengeResponse?
+  public let identifierFlag: Swift.String?
+  public let transactionId: Swift.String?
+  public let status: Swift.String?
+  public let transactionDateTime: Swift.String?
+  public let signature: Swift.String?
+  public let terminalId: Swift.String?
+  public let tokenization: PaymentSDK.SubmitTokenizationDetails?
+  public let responseCode: Swift.String?
+  public let responseDescription: Swift.String?
+  public let result: Swift.String?
+  public let orderDetails: PaymentSDK.SubmitOrderDetails?
+  public let amountDetails: PaymentSDK.SubmitAmountDetails?
+  public let cardDetails: PaymentSDK.SubmitCardDetails?
+  public let customerDetails: PaymentSDK.SubmitCustomerDetails?
+  public let additionalDetails: PaymentSDK.SubmitAdditionalDetails?
+  public let paymentMethod: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct ThreeDSChallengeResponse : Swift.Codable {
+  public let acsUrl: Swift.String
+  public let redirectHtml: Swift.String
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitOrderDetails : Swift.Codable {
+  public let orderId: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitTokenizationDetails : Swift.Codable {
+  public let cardToken: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitAmountDetails : Swift.Codable {
+  public let amount: Swift.String?
+  public let originalAmount: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitCardDetails : Swift.Codable {
+  public let maskedCard: Swift.String?
+  public let cardBrand: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitCustomerDetails : Swift.Codable {
+  public let cardHolderName: Swift.String?
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SubmitAdditionalDetails : Swift.Codable {
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct SDKTextStyle {
+  public var color: SwiftUICore.Color
+  public var height: CoreFoundation.CGFloat
+  public var isBold: Swift.Bool
+  public init(color: SwiftUICore.Color = .black, height: CoreFoundation.CGFloat = 20, isBold: Swift.Bool = false)
+}
+public protocol PaymentDelegate : AnyObject {
+  func paymentDidSucceed(response: PaymentSDK.SubmitPaymentResponse)
+  func paymentDidFail(response: PaymentSDK.SubmitPaymentResponse)
+  func paymentDidCancel()
+}
+extension PaymentSDK.SDKButton : Swift.Sendable {}
+extension PaymentSDK.SDKMerchantBranding.BrandingType : Swift.Equatable {}
+extension PaymentSDK.SDKMerchantBranding.BrandingType : Swift.Hashable {}
+extension PaymentSDK.SDKLabelField : Swift.Sendable {}
+extension PaymentSDK.SDKTextField : Swift.Sendable {}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="PaymentSdkTheme"
+        parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="colorPrimary">#6750A4</item>
+        <item name="colorPrimaryVariant">#6750A4</item>
+        <item name="colorSecondary">#386663</item>
+
+    </style>
+
+</resources>

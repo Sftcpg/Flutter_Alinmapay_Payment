@@ -1,0 +1,26 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+
+    repositories {
+        google()
+        mavenCentral()
+
+        // If testing from local Maven
+       // mavenLocal()
+//        flatDir {
+//            dirs 'libs'
+//        }
+    }
+}
+
+rootProject.name = "flutter_app"
+
+
